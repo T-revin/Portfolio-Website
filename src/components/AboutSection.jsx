@@ -14,7 +14,7 @@ export const AboutSection = () => {
               Data Professional & Web Developer
             </h3>
             <p className="text-muted-foreground">
-              I'm a dedicated data professioanl with a strong foundation in data
+              I'm a dedicated data professional with a strong foundation in data
               analysis and database management. I have strong skills in Excel,
               SQL, and Power BI, enabling me to extract insights and drive
               data-driven decision-making. I have applied these skills in the
