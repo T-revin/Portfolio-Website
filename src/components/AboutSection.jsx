@@ -1,3 +1,5 @@
+import {Code, User, Briefcase} from 'lucide-react';
+
 export const AboutSection = () => {
   return (
     <section id="about" className="py-24 px-4 relative">
@@ -44,7 +46,56 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          <div></div>
+          <div className="grid grid-cols-1 gap-6">
+            <div className="gradient-border p-6 card-hover">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <Code className="h-6 w-6 text-primary" />
+                </div>
+                <div className="text-left">
+                  <h4 className="font-semibold text-lg"> Web Development</h4>
+                  <p className="text-muted-foreground">
+                    Exeprienced in HTML, CSS, JavaScript, React, Tailwind CSS.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="gradient-border p-6 card-hover">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <User className="h-6 w-6 text-primary" />
+                </div>
+                <div className="text-left">
+                  <h4 className="font-semibold text-lg"> Collaboration</h4>
+                  <p className="text-muted-foreground">
+                    Exeprience working with a medium sized team in my current
+                    role as Information Systems Developer to deliver custom
+                    solutions. Tasks include requirement gathering, development,
+                    testing and deployment of customer facing software, senior
+                    management reporting dashboards and internal tools.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="gradient-border p-6 card-hover">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <Briefcase className="h-6 w-6 text-primary" />
+                </div>
+                <div className="text-left">
+                  <h4 className="font-semibold text-lg">
+                    {' '}
+                    Professional Skills
+                  </h4>
+                  <p className="text-muted-foreground">
+                    Over 18 months of professional work in industry has taught
+                    me valuable skills such as time management, communication
+                    and adaptability.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
