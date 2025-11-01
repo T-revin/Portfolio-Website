@@ -15,6 +15,19 @@ export const HeroSection = () => {
               Fernando
             </span>
           </h1>
+
+          <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-4">
+            I am a passionate First Class Honours Computer Science Bsc graduate
+            living in London, UK. With over 18 months of work experience as a
+            Web Developer and Data Professional I am eager to leverage my skills
+            and knowledge to contribute to innovative projects.
+          </p>
+
+          <div>
+            <a href="#project" className="cosmic-button">
+              View My Work
+            </a>
+          </div>
         </div>
       </div>
     </section>
