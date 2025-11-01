@@ -1,6 +1,14 @@
 import {useEffect, useState} from 'react';
 import {cn} from '@/lib/utils';
 
+const navItems = [
+  {name: 'Home', href: '#hero'},
+  {name: 'About', href: '#about'},
+  {name: 'Skills', href: '#skills'},
+  {name: 'Projects', href: '#projects'},
+  {name: 'Contact', href: '#contact'},
+];
+
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -20,11 +28,26 @@ export const Navbar = () => {
       )}
     >
       <div v className="container flex items-center justify-between">
-        <a>
-          <span>
-            <span className="text-glow">TFernando</span> Portfolio
+        <a
+          className="text-xl font-blod text-primary flex items-center"
+          href="#hero"
+        >
+          <span className="relative z-10">
+            <span className="text-glow text-foreground">TFernando</span>{' '}
+            Portfolio
           </span>
         </a>
+
+        {/* desktop nav */}
+        <div className="hidden md:flex space-x-8">
+          {navItems.map((item, key) => (
+            <a key={key} href={item.href}>
+              {item.name}
+            </a>
+          ))}
+        </div>
+
+        {/* mobile nav */}
       </div>
     </nav>
   );
