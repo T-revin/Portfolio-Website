@@ -1,4 +1,4 @@
-import {Linkedin, Mail, MapPin, Phone} from 'lucide-react';
+import {Linkedin, Mail, MapPin, Send} from 'lucide-react';
 
 export const ContactSection = () => {
   return (
@@ -60,7 +60,12 @@ export const ContactSection = () => {
               </div>
             </div>
           </div>
-          <div className="gradient-border p-8 rounded-large shadow-xs">
+
+          <div>
+            <p>I look forward to hearing from you.</p>
+          </div>
+          {/* Optionally add a method to directly message by email within the website*/}
+          {/* <div className="gradient-border p-8 rounded-large shadow-xs">
             <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
             <form className="space-y-6">
               <div>
@@ -112,8 +117,19 @@ export const ContactSection = () => {
                   placeholder="Hello, I would like to talk about..."
                 />
               </div>
+
+              <button
+                type="submit"
+                className={cn(
+                  'cosmic-button w-full flex items-center justify-center gap-2'
+                )}
+              >
+                Send Message
+                <Send size={16} />
+              </button>
             </form>
           </div>
+		  */}
         </div>
       </div>
     </section>
