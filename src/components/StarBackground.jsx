@@ -5,11 +5,11 @@ import {useEffect, useState} from 'react';
 
 export const StarBackground = () => {
   const [stars, setStars] = useState([]);
-  const [meteors, setMeteors] = useState([]);
+  //const [meteors, setMeteors] = useState([]);
 
   useEffect(() => {
     generateStars();
-    generateMeteors();
+    //generateMeteors();
 
     const handleResize = () => {
       generateStars();
@@ -41,7 +41,8 @@ export const StarBackground = () => {
     setStars(newStars);
   };
 
-  const generateMeteors = () => {
+  {
+    /*const generateMeteors = () => {
     const numberOfMeteors = 4;
     const newMeteors = [];
 
@@ -57,7 +58,8 @@ export const StarBackground = () => {
     }
     setMeteors(newMeteors);
   };
-
+*/
+  }
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
       {stars.map((star) => (
@@ -74,7 +76,7 @@ export const StarBackground = () => {
           }}
         />
       ))}
-
+      {/*
       {meteors.map((meteor) => (
         <div
           key={meteor.id}
@@ -89,6 +91,7 @@ export const StarBackground = () => {
           }}
         />
       ))}
+         */}
     </div>
   );
 };
