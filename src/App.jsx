@@ -1,3 +1,5 @@
+import {Analytics} from '@vercel/analytics/next';
+
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Home} from '@/pages/Home';
 import {NotFound} from '@/pages/NotFound';
@@ -5,6 +7,7 @@ import {NotFound} from '@/pages/NotFound';
 function App() {
   return (
     <>
+      <Analytics />
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
