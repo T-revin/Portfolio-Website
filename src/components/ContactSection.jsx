@@ -1,4 +1,4 @@
-import {Mail} from 'lucide-react';
+import {Linkedin, Mail, MapPin, Phone} from 'lucide-react';
 
 export const ContactSection = () => {
   return (
@@ -27,6 +27,34 @@ export const ContactSection = () => {
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     trevinshalika@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <Linkedin className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-medium">LinkedIn</h4>
+                  <a
+                    href="https://www.linkedin.com/in/trevin-fernando-71620b252/"
+                    target="_blank"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Connect with Me LinkedIn
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <MapPin className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-medium">Location</h4>
+                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                    London, United Kingdom
                   </a>
                 </div>
               </div>
