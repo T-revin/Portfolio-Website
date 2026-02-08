@@ -18,8 +18,8 @@
   --animate-fade-in-delay-2: fade-in 0.7s ease-in forwards 0.4s;
   --animate-fade-in-delay-3: fade-in 0.7s ease-in forwards 0.6s;
   --animate-fade-in-delay-4: fade-in 0.7s ease-in forwards 0.8s;
-  /* meteor animation */
-  --animate-meteor: meteor 5s ease-in-out forwards;
+  /* drift animation */
+  --animate-drift: drift 20s linear infinite;
 
   @keyframes float {
     0%,
@@ -49,43 +49,41 @@
       transform: translateY(0);
     }
   }
-  @keyframes meteor {
+  @keyframes drift {
     0% {
-      transform: translateX(0) translateY(0) rotate(45deg);
-      opacity: 1;
+      transform: translateX(0) translateY(0);
     }
-    70% {
-      opacity: 1;
+    50% {
+        transform: translateX(-50px) translateY(-20px);
     }
     100% {
-      transform: rotate(215deg) translateX(-500px);
-      opacity: 0;
+      transform: translateX(0) translateY(0);
     }
   }
 }
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    --background: 210 60% 98%;
+    --foreground: 222 47% 20%;
 
     --card: 0 0% 100%;
 
-    --primary: 250 47% 60%;
+    --primary: 199 89% 48%;
     --primary-foreground: 210 40% 98%;
 
-    --border: 214 32% 91%;
+    --border: 210 40% 90%;
   }
   .dark {
-    --background: 222 47% 4%;
-    --foreground: 213 31% 91%;
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
 
-    --card: 222 47% 8%;
+    --card: 217 33% 15%;
 
-    --primary: 250 65% 65%;
+    --primary: 186 100% 50%;
     --primary-foreground: 213 31% 91%;
 
-    --border: 217 33% 20%;
+    --border: 217 33% 25%;
   }
 
   * {
@@ -150,10 +148,7 @@
   box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
 }
 
-@utility meteor {
-  @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
-  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
-}
+
 
 #root {
   max-width: 100%;
