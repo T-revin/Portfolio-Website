@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { skills, projects } from '../data/portfolio';
 import { SkillCard } from './SkillCard';
+import { ProjectModal } from './ProjectModal';
 
 const tabs = [ 'engineering', 'analysis', 'visualisation','all',];
 
 export const SkillsSection = () => {
   const [activeTab, setActiveTab] = useState('all');
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const toolSkills = skills.filter((skill) => skill.category === 'tool');
   const mainSkills = skills.filter((skill) => skill.category !== 'tool');
@@ -42,7 +44,15 @@ export const SkillsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
           {filteredSkills.map((skill) => (
-            <SkillCard key={skill.id} skill={skill} allProjects={projects} />
+            <SkillCard 
+              key={skill.id} 
+              skill={skill} 
+              allProjects={projects}
+              onOpenProject={(projectId) => {
+                const project = projects.find((p) => p.id === projectId);
+                if (project) setSelectedProject(project);
+              }}
+            />
           ))}
         </div>
 
@@ -60,6 +70,12 @@ export const SkillsSection = () => {
             </div>
           ))}
         </div>
+
+        <ProjectModal
+          isOpen={!!selectedProject}
+          onClose={() => setSelectedProject(null)}
+          project={selectedProject}
+        />
       </div>
     </section>
   );

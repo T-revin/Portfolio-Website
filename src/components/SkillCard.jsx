@@ -1,6 +1,6 @@
 import { CheckCircle2 } from 'lucide-react';
 
-export const SkillCard = ({ skill, allProjects }) => {
+export const SkillCard = ({ skill, allProjects, onOpenProject }) => {
   const relatedProjects = skill.relatedProjectIds
     ? skill.relatedProjectIds.map((id) =>
         allProjects.find((project) => project.id === id)
@@ -28,13 +28,14 @@ export const SkillCard = ({ skill, allProjects }) => {
           </p>
           <div className="flex flex-wrap gap-2">
             {relatedProjects.map((project) => (
-              <span
+              <button
                 key={project.id}
-                className="inline-flex items-center text-xs px-2 py-1 rounded bg-secondary/50 text-secondary-foreground hover:bg-primary/20 hover:text-primary transition-colors cursor-default"
-                title={`Implemented in ${project.title}`}
+                onClick={() => onOpenProject(project.id)}
+                className="inline-flex items-center text-xs px-2 py-1 rounded bg-secondary/50 text-secondary-foreground hover:bg-primary/20 hover:text-primary transition-colors cursor-pointer"
+                title={`View ${project.title}`}
               >
                 {project.title}
-              </span>
+              </button>
             ))}
           </div>
         </div>
