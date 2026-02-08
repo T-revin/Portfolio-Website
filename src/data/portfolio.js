@@ -73,6 +73,27 @@ export const projects = [
       architectureImage: '/projects/architecture-placeholder.png',
     },
   },
+  {
+    id: 4,
+    title: 'Personal Portfolio Website',
+    description:
+      'A modern, responsive portfolio website built with React and Tailwind CSS. Features a deep ocean theme, interactive animations, and a custom particle background system.',
+    image: '/projects/Portfolio.jpg',
+    tags: ['React', 'Tailwind CSS', 'Vite'],
+    demoURL: '#',
+    gitHubUrl: 'https://github.com/T-revin/Portfolio-Website',
+    hasCaseStudy: true,
+    details: {
+      problem:
+        'Needed a unique way to showcase my data analytics and engineering skills.',
+      solution:
+        'Built a custom React application with a thematic design reflecting my interest in deep data.',
+      impact:
+        'Provides a professional online presence and demonstrates full-stack capabilities.',
+      techStackDetails: ['React', 'Tailwind CSS', 'Vite'],
+      architectureImage: '/projects/architecture-placeholder.png',
+    },
+  },
 ];
 
 export const skills = [
@@ -82,21 +103,21 @@ export const skills = [
     name: 'HTML/CSS',
     category: 'visualisation',
     description: 'Building responsive and accessible web interfaces.',
-    relatedProjectIds: [1],
+    relatedProjectIds: [1, 4],
   },
   {
     id: 'javascript',
     name: 'JavaScript',
     category: 'visualisation',
     description: 'Developing interactive web applications and dynamic content.',
-    relatedProjectIds: [1],
+    relatedProjectIds: [1, 4],
   },
   {
     id: 'react',
     name: 'React',
     category: 'visualisation',
     description: 'Building component-based user interfaces and single-page applications.',
-    relatedProjectIds: [1],
+    relatedProjectIds: [1, 4],
   },
   {
     id: 'node-js',
@@ -154,7 +175,7 @@ export const skills = [
     name: 'VS Code',
     category: 'tool',
     description: '',
-    relatedProjectIds: [],
+    relatedProjectIds: [4],
   },
   {
     id: 'figma',
@@ -168,7 +189,7 @@ export const skills = [
     name: 'GitHub',
     category: 'tool',
     description: '',
-    relatedProjectIds: [],
+    relatedProjectIds: [4],
   },
   {
     id: 'jupyter',
