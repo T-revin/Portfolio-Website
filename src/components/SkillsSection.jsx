@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {cn} from '@/lib/utils';
-import { skills } from '../data/portfolio';
+import { skills, projects } from '../data/portfolio';
+import { SkillCard } from './SkillCard';
 
 
 
@@ -37,24 +38,7 @@ export const SkillsSection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skill, key) => (
-            <div
-              key={key}
-              className="gradient-border p-6 rounded-lg shadow-xs card-hover flex flex-col h-full"
-            >
-              <div className="text-left mb-2">
-                <h3 className="font-semibold text-lg"> {skill.name}</h3>
-              </div>
-              
-              {skill.category === 'core' && (
-                <p className="text-sm text-muted-foreground mt-2 line-clamp-3">
-                    {skill.description}
-                </p>
-              )}
-            </div>
-          ))}
-        </div>
+
       </div>
     </section>
   );
