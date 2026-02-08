@@ -130,11 +130,26 @@
   @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
 }
 
-@utility gradient-border {
-  @apply relative rounded-md;
-  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
-  background-clip: padding-box;
-  border: 1px solid transparent;
+@utility glass-panel {
+  @apply relative rounded-xl backdrop-blur-md transition-all duration-300;
+  /* Light Mode: White frosted glass */
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+
+  /* Dark Mode: Dark Blue frosted glass */
+  .dark & {
+    background: rgba(15, 23, 42, 0.4); /* Slate-900 with opacity */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@utility glass-hover {
+    @apply hover:scale-[1.01] hover:shadow-xl;
+    .dark & {
+       @apply hover:shadow-cyan-900/20; /* Subtle glow in depth */
+    }
 }
 
 @utility cosmic-button {
@@ -143,10 +158,7 @@
          hover:scale-105 active:scale-95;
 }
 
-@utility star {
-  @apply absolute rounded-full bg-white;
-  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
-}
+
 
 
 

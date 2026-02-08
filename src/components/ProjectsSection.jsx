@@ -26,7 +26,7 @@ export const ProjectsSection = () => {
           {projects.map((project, key) => (
             <div
               key={key}
-              className="group gradient-border rounded-lg overflow-hidden shadow-xs card-hover"
+              className="group glass-panel glass-hover overflow-hidden"
             >
               <div className="h-48 overflow-hidden">
                 <img

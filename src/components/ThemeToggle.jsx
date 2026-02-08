@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Sun, Moon} from 'lucide-react';
+import {Sun, Waves} from 'lucide-react';
 import {cn} from '@/lib/utils';
 
 export const ThemeToggle = () => {
@@ -32,14 +32,15 @@ export const ThemeToggle = () => {
     <button
       onClick={toggleTheme}
       className={cn(
-        'fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300',
+        'glass-panel fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-all duration-300 hover:scale-110',
         'focus:hidden'
       )}
+      aria-label="Toggle Theme"
     >
       {isDarkMode ? (
-        <Sun className="h-6 w-6 text-yellow-300" />
+        <Sun className="h-6 w-6 text-orange-400" />
       ) : (
-        <Moon className="h-6 w-6 text-blue-900" />
+        <Waves className="h-6 w-6 text-cyan-600" />
       )}
     </button>
   );

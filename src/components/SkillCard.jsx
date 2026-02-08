@@ -8,7 +8,7 @@ export const SkillCard = ({ skill, allProjects, onOpenProject }) => {
     : [];
 
   return (
-    <div className="gradient-border p-5 rounded-lg shadow-xs card-hover flex flex-col h-full bg-background/40 hover:bg-background/60 transition-colors text-left">
+    <div className="glass-panel glass-hover p-5 flex flex-col h-full text-left">
       <div className="mb-3">
         <h3 className="font-bold text-lg">{skill.name}</h3>
       </div>
