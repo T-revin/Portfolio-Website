@@ -8,7 +8,7 @@ export const SkillCard = ({ skill, allProjects, onOpenProject }) => {
     : [];
 
   return (
-    <div className="gradient-border p-5 rounded-lg shadow-xs card-hover flex flex-col h-full bg-background/40 hover:bg-background/60 transition-colors">
+    <div className="gradient-border p-5 rounded-lg shadow-xs card-hover flex flex-col h-full bg-background/40 hover:bg-background/60 transition-colors text-left">
       <div className="mb-3">
         <h3 className="font-bold text-lg">{skill.name}</h3>
       </div>
@@ -22,7 +22,7 @@ export const SkillCard = ({ skill, allProjects, onOpenProject }) => {
       </div>
 
       {relatedProjects.length > 0 && (
-        <div className="mt-4 pt-4 border-t border-border/50">
+        <div className="mt-6 pt-4 border-t border-border/50">
           <p className="text-xs font-semibold text-primary mb-2 flex items-center gap-1">
             <CheckCircle2 size={12} /> Implemented in:
           </p>
@@ -31,7 +31,7 @@ export const SkillCard = ({ skill, allProjects, onOpenProject }) => {
               <button
                 key={project.id}
                 onClick={() => onOpenProject(project.id)}
-                className="inline-flex items-center text-xs px-2 py-1 rounded bg-secondary/50 text-secondary-foreground hover:bg-primary/20 hover:text-primary transition-colors cursor-pointer"
+                className="inline-flex items-center text-xs px-2.5 py-1 rounded-md bg-secondary/30 text-secondary-foreground hover:bg-primary/10 hover:text-primary transition-all duration-300 cursor-pointer border border-transparent hover:border-primary/20"
                 title={`View ${project.title}`}
               >
                 {project.title}
