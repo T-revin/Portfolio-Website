@@ -1,27 +1,8 @@
 import {useState} from 'react';
 import {cn} from '@/lib/utils';
+import { skills } from '../data/portfolio';
 
-const skills = [
-  //frontend skills
-  {name: 'HTML/CSS', level: 90, category: 'frontend'},
-  {name: 'JavaScript', level: 85, category: 'frontend'},
-  {name: 'React', level: 80, category: 'frontend'},
 
-  //backend skills
-  {name: 'Node.js', level: 70, category: 'backend'},
-  {name: 'Express.js', level: 65, category: 'backend'},
-  {name: 'SQL', level: 75, category: 'backend'},
-  {name: 'Python', level: 80, category: 'backend'},
-
-  //tools
-  {name: 'Microsoft Excel', level: 90, category: 'tools'},
-  {name: 'Tableau', level: 70, category: 'tools'},
-  {name: 'Power BI', level: 65, category: 'tools'},
-  {name: 'VS Code', level: 95, category: 'tools'},
-  {name: 'Figma', level: 60, category: 'tools'},
-  {name: 'GitHub', level: 85, category: 'tools'},
-  {name: 'Jupyter Notebooks', level: 80, category: 'tools'},
-];
 
 const categories = ['all', 'frontend', 'backend', 'tools'];
 
