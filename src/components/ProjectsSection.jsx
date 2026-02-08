@@ -40,7 +40,7 @@ export const ProjectsSection = () => {
               <div className="p-4">
                 <div className="flex flex-wrap gap-2 mb-1">
                   {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-primary text-secondary-foreground">
+                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-primary">
                       {tag}
                     </span>
                   ))}
@@ -83,7 +83,7 @@ export const ProjectsSection = () => {
         </div>
         <div className="text-center mt-12">
           <a
-            className="cosmic-button w-fit flex items-center mx-auto gap-2"
+            className="ocean-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
             href="https://github.com/T-revin"
           >

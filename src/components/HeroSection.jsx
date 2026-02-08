@@ -25,11 +25,7 @@ export const HeroSection = () => {
             and knowledge to contribute to innovative projects.
           </p>
 
-          <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#project" className="cosmic-button">
-              View My Work
-            </a>
-          </div>
+
         </div>
       </div>
 

@@ -33,7 +33,7 @@ export const SkillsSection = () => {
               className={cn(
                 'px-5 py-2 rounded-full transition-colors duration-300 capitalize font-medium',
                 activeTab === tab
-                  ? 'bg-primary text-primary-foreground'
+                  ? 'bg-secondary text-primary'
                   : 'bg-secondary/70 text-foreground hover:bg-primary/20'
               )}
             >

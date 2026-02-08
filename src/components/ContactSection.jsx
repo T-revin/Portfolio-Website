@@ -121,7 +121,7 @@ export const ContactSection = () => {
               <button
                 type="submit"
                 className={cn(
-                  'cosmic-button w-full flex items-center justify-center gap-2'
+                  'ocean-button w-full flex items-center justify-center gap-2'
                 )}
               >
                 Send Message
