@@ -76,23 +76,105 @@ export const projects = [
 ];
 
 export const skills = [
-  //frontend skills
-  {name: 'HTML/CSS', level: 90, category: 'frontend'},
-  {name: 'JavaScript', level: 85, category: 'frontend'},
-  {name: 'React', level: 80, category: 'frontend'},
+  // Core Skills
+  {
+    id: 'html-css',
+    name: 'HTML/CSS',
+    category: 'core',
+    description: 'Building responsive and accessible web interfaces.',
+    relatedProjectIds: [1],
+  },
+  {
+    id: 'javascript',
+    name: 'JavaScript',
+    category: 'core',
+    description: 'Developing interactive web applications and dynamic content.',
+    relatedProjectIds: [1],
+  },
+  {
+    id: 'react',
+    name: 'React',
+    category: 'core',
+    description: 'Building component-based user interfaces and single-page applications.',
+    relatedProjectIds: [1],
+  },
+  {
+    id: 'node-js',
+    name: 'Node.js',
+    category: 'core',
+    description: 'Building scalable server-side applications and APIs.',
+    relatedProjectIds: [1],
+  },
+  {
+    id: 'express-js',
+    name: 'Express.js',
+    category: 'core',
+    description: 'Creating RESTful APIs and backend services.',
+    relatedProjectIds: [1],
+  },
+  {
+    id: 'sql',
+    name: 'SQL',
+    category: 'core',
+    description: 'Designing and querying relational databases for data integrity.',
+    relatedProjectIds: [1],
+  },
+  {
+    id: 'python',
+    name: 'Python',
+    category: 'core',
+    description: 'Scripting, data analysis, and automation tasks.',
+    relatedProjectIds: [],
+  },
+  {
+    id: 'excel',
+    name: 'Microsoft Excel',
+    category: 'core',
+    description: 'Advanced data analysis, visualization, and automation with VBA.',
+    relatedProjectIds: [3],
+  },
+  {
+    id: 'power-bi',
+    name: 'Power BI',
+    category: 'core',
+    description: 'Creating interactive data dashboards and business intelligence reports.',
+    relatedProjectIds: [2],
+  },
 
-  //backend skills
-  {name: 'Node.js', level: 70, category: 'backend'},
-  {name: 'Express.js', level: 65, category: 'backend'},
-  {name: 'SQL', level: 75, category: 'backend'},
-  {name: 'Python', level: 80, category: 'backend'},
-
-  //tools
-  {name: 'Microsoft Excel', level: 90, category: 'tools'},
-  {name: 'Tableau', level: 70, category: 'tools'},
-  {name: 'Power BI', level: 65, category: 'tools'},
-  {name: 'VS Code', level: 95, category: 'tools'},
-  {name: 'Figma', level: 60, category: 'tools'},
-  {name: 'GitHub', level: 85, category: 'tools'},
-  {name: 'Jupyter Notebooks', level: 80, category: 'tools'},
+  // Tools
+  {
+    id: 'tableau',
+    name: 'Tableau',
+    category: 'tool',
+    description: '',
+    relatedProjectIds: [],
+  },
+  {
+    id: 'vscode',
+    name: 'VS Code',
+    category: 'tool',
+    description: '',
+    relatedProjectIds: [],
+  },
+  {
+    id: 'figma',
+    name: 'Figma',
+    category: 'tool',
+    description: '',
+    relatedProjectIds: [],
+  },
+  {
+    id: 'github',
+    name: 'GitHub',
+    category: 'tool',
+    description: '',
+    relatedProjectIds: [],
+  },
+  {
+    id: 'jupyter',
+    name: 'Jupyter Notebooks',
+    category: 'tool',
+    description: '',
+    relatedProjectIds: [],
+  },
 ];
