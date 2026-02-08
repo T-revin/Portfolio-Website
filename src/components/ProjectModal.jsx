@@ -3,15 +3,22 @@ import { X, CheckCircle2, ArrowRight, GithubIcon } from 'lucide-react';
 
 export const ProjectModal = ({ isOpen, onClose, project }) => {
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
     } else {
       document.body.style.overflow = 'unset';
     }
+    
     return () => {
       document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   if (!isOpen || !project) return null;
 
@@ -24,7 +31,7 @@ export const ProjectModal = ({ isOpen, onClose, project }) => {
       />
 
       {/* Modal Content */}
-      <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-background rounded-2xl border border-primary/20 shadow-2xl animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-background rounded-2xl border border-primary/20 shadow-2xl animate-in fade-in zoom-in-95 duration-300">
         
         {/* Close Button - Floats top right */}
         <button

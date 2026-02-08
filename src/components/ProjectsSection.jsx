@@ -32,22 +32,27 @@ const projects = [
   },
   {
     id: 2,
-    title: 'Power BI Dashboard for Student Outcomes Analysis',
+    title: 'Automated Customer Support Analytics Pipeline',
     description:
       'A Power BI dashboard that visualises student outcomes data to identify trends and insights. The dashboard includes interactive charts and graphs to help stakeholders make data-driven decisions.',
     image: '/projects/DataDashboard.png',
-    tags: ['Power BI', 'Data Visualisation', 'Data Analysis'],
+    tags: ['Power Automate', 'Power BI', 'SharePoint'],
     demoURL: '#',
-    gitHubUrl: '#',
+    gitHubUrl: null,
     hasCaseStudy: true,
     details: {
       problem:
-        'Legacy reporting tools provided static, delayed insights into student performance metrics.',
+        'Support officers were manually tracking tickets, leading to data entry errors and a 48-hour lag in reporting.',
       solution:
-        'Built an interactive Power BI dashboard connecting directly to live student data sources for real-time analysis.',
+        'Developed a dual-flow automation. Flow 1 parses incoming Outlook emails and extracts metadata to SharePoint. Flow 2 triggers updates to the Power BI dataset for near real-time visualization.',
       impact:
-        'Enabled faculty to identify at-risk students 3 weeks earlier in the semester.',
-      techStackDetails: ['Power BI', 'DAX', 'SQL Server Analysis Services'],
+        'Eliminated 100% of manual data entry for ticket tracking and provided management with live volume metrics.',
+      techStackDetails: [
+        'Power Automate (Flow)',
+        'SharePoint Lists',
+        'Power BI Service',
+        'DAX',
+      ],
       architectureImage: '/projects/architecture-placeholder.png',
     },
   },
