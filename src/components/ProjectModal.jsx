@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { X, CheckCircle2, ArrowRight } from 'lucide-react';
+import { X, CheckCircle2, ArrowRight, GithubIcon } from 'lucide-react';
 
 export const ProjectModal = ({ isOpen, onClose, project }) => {
   useEffect(() => {
@@ -128,7 +128,7 @@ export const ProjectModal = ({ isOpen, onClose, project }) => {
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2 w-full py-3 rounded-lg border border-input bg-transparent hover:bg-accent hover:text-accent-foreground transition-colors"
                     >
-                      View Source Code
+                      View Source Code <GithubIcon size={16} />
                     </a>
                   )}
                </div>

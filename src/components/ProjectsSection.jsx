@@ -39,7 +39,7 @@ const projects = [
     tags: ['Power BI', 'Data Visualisation', 'Data Analysis'],
     demoURL: '#',
     gitHubUrl: '#',
-    hasCaseStudy: false,
+    hasCaseStudy: true,
     details: {
       problem:
         'Legacy reporting tools provided static, delayed insights into student performance metrics.',
@@ -60,7 +60,7 @@ const projects = [
     tags: ['Microsoft Excel', 'Data Analysis', 'Data Management'],
     demoURL: '#',
     gitHubUrl: '#',
-    hasCaseStudy: false,
+    hasCaseStudy: true,
     details: {
       problem:
         'Teachers struggled to track individual student progress across multiple assessments using paper records.',
@@ -76,7 +76,6 @@ const projects = [
 
 export const ProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -120,33 +119,31 @@ export const ProjectsSection = () => {
                 <p className="text-muted-foreground text-sm mb-4">
                   {project.description}
                 </p>
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
-                    <a
-                      href={project.demoURL}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink />
-                    </a>
-                    <a
-                      href={project.gitHubUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <GithubIcon />
-                    </a>
-                  </div>
-                   {project.hasCaseStudy && (
+                <div className="flex justify-between items-center w-full">
+                  {project.hasCaseStudy ? (
                     <button
-                      onClick={() => {
-                        setSelectedProject(project);
-                        setIsModalOpen(true);
-                      }}
-                       className="text-sm font-medium text-primary hover:underline underline-offset-4"
+                      onClick={() => setSelectedProject(project)}
+                      className="text-sm font-medium text-primary hover:underline underline-offset-4 w-full text-center"
                     >
-                      Read Case Study
+                      View Case Study
                     </button>
+                  ) : (
+                    <div className="flex space-x-3">
+                      <a
+                        href={project.demoURL}
+                        target="_blank"
+                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                      >
+                        <ExternalLink />
+                      </a>
+                      <a
+                        href={project.gitHubUrl}
+                        target="_blank"
+                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                      >
+                        <GithubIcon />
+                      </a>
+                    </div>
                   )}
                 </div>
               </div>
@@ -165,8 +162,8 @@ export const ProjectsSection = () => {
       </div>
     </section>
   <ProjectModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        isOpen={!!selectedProject}
+        onClose={() => setSelectedProject(null)}
         project={selectedProject}
       />
       </>
