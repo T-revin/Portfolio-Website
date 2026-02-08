@@ -1,4 +1,6 @@
 import {ArrowRight, ExternalLink, GithubIcon} from 'lucide-react';
+import { useState } from 'react';
+import { ProjectModal } from './ProjectModal';
 
 const projects = [
   {
@@ -16,6 +18,17 @@ const projects = [
     ],
     demoURL: '#',
     gitHubUrl: '#',
+    hasCaseStudy: true,
+    details: {
+      problem:
+        'Manual student group allocation is time-consuming and often results in unhappy students due to suboptimal pairings.',
+      solution:
+        'Developed an automated algorithm to optimally distribute students based on their preferences and availability constraints.',
+      impact:
+        'Reduced administrative time by 95% and increased student satisfaction with group assignments.',
+      techStackDetails: ['React', 'Express.js', 'PostgreSQL', 'Node.js'],
+      architectureImage: '/projects/architecture-placeholder.png',
+    },
   },
   {
     id: 2,
@@ -26,6 +39,17 @@ const projects = [
     tags: ['Power BI', 'Data Visualisation', 'Data Analysis'],
     demoURL: '#',
     gitHubUrl: '#',
+    hasCaseStudy: false,
+    details: {
+      problem:
+        'Legacy reporting tools provided static, delayed insights into student performance metrics.',
+      solution:
+        'Built an interactive Power BI dashboard connecting directly to live student data sources for real-time analysis.',
+      impact:
+        'Enabled faculty to identify at-risk students 3 weeks earlier in the semester.',
+      techStackDetails: ['Power BI', 'DAX', 'SQL Server Analysis Services'],
+      architectureImage: '/projects/architecture-placeholder.png',
+    },
   },
   {
     id: 3,
@@ -36,11 +60,26 @@ const projects = [
     tags: ['Microsoft Excel', 'Data Analysis', 'Data Management'],
     demoURL: '#',
     gitHubUrl: '#',
+    hasCaseStudy: false,
+    details: {
+      problem:
+        'Teachers struggled to track individual student progress across multiple assessments using paper records.',
+      solution:
+        'Designed a comprehensive Excel workbook with conditional formatting and automated summary statistics.',
+      impact:
+        'Streamlined grade tracking and visualization, saving teachers 5 hours per week on administrative tasks.',
+      techStackDetails: ['Microsoft Excel', 'VBA', 'Power Query'],
+      architectureImage: '/projects/architecture-placeholder.png',
+    },
   },
 ];
 
 export const ProjectsSection = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
+    <>
     <section id="projects" className="py-14 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
@@ -65,6 +104,7 @@ export const ProjectsSection = () => {
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
+               
               </div>
 
               <div className="p-4">
@@ -97,6 +137,17 @@ export const ProjectsSection = () => {
                       <GithubIcon />
                     </a>
                   </div>
+                   {project.hasCaseStudy && (
+                    <button
+                      onClick={() => {
+                        setSelectedProject(project);
+                        setIsModalOpen(true);
+                      }}
+                       className="text-sm font-medium text-primary hover:underline underline-offset-4"
+                    >
+                      Read Case Study
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
@@ -113,5 +164,11 @@ export const ProjectsSection = () => {
         </div>
       </div>
     </section>
+  <ProjectModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        project={selectedProject}
+      />
+      </>
   );
 };
