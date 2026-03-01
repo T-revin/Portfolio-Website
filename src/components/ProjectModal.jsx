@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, CheckCircle2, ArrowRight, GithubIcon, ZoomIn } from 'lucide-react';
+import { X, CheckCircle2, ArrowRight, GithubIcon, ZoomIn, ExternalLink } from 'lucide-react';
 
 export const ProjectModal = ({ isOpen, onClose, project }) => {
   const [expandedImage, setExpandedImage] = useState(null);
@@ -210,6 +210,15 @@ export const ProjectModal = ({ isOpen, onClose, project }) => {
             className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl" 
             onClick={(e) => e.stopPropagation()} 
           />
+          <a 
+            href={expandedImage} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="absolute bottom-6 px-4 py-2 bg-slate-900/80 text-white rounded-full text-sm backdrop-blur-md border border-slate-700 flex items-center gap-2 hover:bg-slate-800 transition-colors z-[70]"
+          >
+            Open full size <ExternalLink size={16} />
+          </a>
         </div>
       )}
     </>
