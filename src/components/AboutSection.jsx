@@ -14,11 +14,11 @@ export const AboutSection = () => {
               Bridging the Gap Between Raw Data & Decision Making
             </h3>
             <p className="text-muted-foreground">
-              With over 1.5 years of experience in the Industy, 
+              With over 1.5 years of experience as a data professional in the Higher Education sector, 
               I specialise in transforming complex datasets into clear, actionable insights.
               Currently serving as an Information Systems Developer 
               for a London-based higher education institution, 
-              I manage data pipelines that support operational decisions for a large student body.
+              I manage data pipelines that support operational decisions for a large student body (500+).
             </p>
 
             <p className="text-muted-foreground">
