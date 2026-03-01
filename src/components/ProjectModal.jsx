@@ -1,10 +1,18 @@
-import { useEffect } from 'react';
-import { X, CheckCircle2, ArrowRight, GithubIcon } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { X, CheckCircle2, ArrowRight, GithubIcon, ZoomIn } from 'lucide-react';
 
 export const ProjectModal = ({ isOpen, onClose, project }) => {
+  const [expandedImage, setExpandedImage] = useState(null);
+
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        if (expandedImage) {
+          setExpandedImage(null);
+        } else {
+          onClose();
+        }
+      }
     };
 
     if (isOpen) {
@@ -18,12 +26,24 @@ export const ProjectModal = ({ isOpen, onClose, project }) => {
       document.body.style.overflow = 'unset';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, expandedImage]);
 
   if (!isOpen || !project) return null;
 
+  const formatText = (text) => {
+    if (!text) return null;
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return parts.map((part, index) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={index} className="text-foreground font-bold">{part.slice(2, -2)}</strong>;
+      }
+      return part;
+    });
+  };
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+    <>
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" 
@@ -43,11 +63,12 @@ export const ProjectModal = ({ isOpen, onClose, project }) => {
 
         {/* Hero Image */}
         <div className="relative h-64 md:h-80 w-full overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent z-[1]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover"
+            onClick={() => setExpandedImage(project.image)}
+            className="w-full h-full object-cover cursor-pointer transition-opacity hover:opacity-80"
           />
           
           <div className="absolute bottom-0 left-0 p-6 md:p-8 z-[2]">
@@ -76,8 +97,8 @@ export const ProjectModal = ({ isOpen, onClose, project }) => {
                 <h3 className="text-xl font-semibold mb-3 flex items-center gap-2 text-primary">
                   <span className="bg-primary/20 p-1.5 rounded-lg">🎯</span> The Challenge
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.details.problem}
+                <p className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
+                  {formatText(project.details.problem)}
                 </p>
               </section>
 
@@ -86,18 +107,42 @@ export const ProjectModal = ({ isOpen, onClose, project }) => {
                 <h3 className="text-xl font-semibold mb-3 flex items-center gap-2 text-primary">
                   <span className="bg-primary/20 p-1.5 rounded-lg">💡</span> The Solution
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.details.solution}
+                <p className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
+                  {formatText(project.details.solution)}
                 </p>
               </section>
+
+              {/* Optional Architecture Image */}
+              {(project.architectureImage || project.details?.architectureImage) && (
+                <section>
+                  <h3 className="text-xl font-semibold mb-4 flex items-center gap-2 text-primary">
+                    <span className="bg-primary/20 p-1.5 rounded-lg">🏗️</span> System Architecture
+                  </h3>
+                  <div className="relative rounded-xl overflow-hidden border border-border bg-muted/20 group">
+                    <img 
+                      src={project.architectureImage || project.details?.architectureImage} 
+                      alt="System Architecture" 
+                      onClick={() => setExpandedImage(project.architectureImage || project.details?.architectureImage)}
+                      className="w-full h-auto cursor-pointer transition-opacity hover:opacity-80"
+                      onError={(e) => {
+                        e.target.style.display = 'none'; // Hide if image loads fail (placeholder)
+                      }}
+                    />
+                    <div className="absolute bottom-3 right-3 bg-black/80 text-white px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex items-center gap-2 text-sm backdrop-blur-sm">
+                      <ZoomIn size={16} />
+                      <span>Click to expand</span>
+                    </div>
+                  </div>
+                </section>
+              )}
 
               {/* Impact Section */}
               <section className="bg-secondary/10 p-6 rounded-xl border border-secondary/20">
                 <h3 className="text-xl font-semibold mb-3 flex items-center gap-2 text-primary">
                   <span className="bg-primary/20 p-1.5 rounded-lg">🚀</span> Key Results
                 </h3>
-                <p className="text-foreground font-medium leading-relaxed">
-                  {project.details.impact}
+                <p className="text-foreground font-medium leading-relaxed whitespace-pre-wrap">
+                  {formatText(project.details.impact)}
                 </p>
               </section>
             </div>
@@ -142,25 +187,31 @@ export const ProjectModal = ({ isOpen, onClose, project }) => {
             </div>
           </div>
 
-          {/* Optional Architecture Image */}
-          {project.details.architectureImage && (
-            <div className="mt-8 pt-8 border-t border-border">
-              <h3 className="text-xl font-semibold mb-4">System Architecture</h3>
-              <div className="rounded-xl overflow-hidden border border-border bg-muted/20">
-                <img 
-                  src={project.details.architectureImage} 
-                  alt="System Architecture" 
-                  className="w-full h-auto"
-                  onError={(e) => {
-                    e.target.style.display = 'none'; // Hide if image loads fail (placeholder)
-                  }}
-                />
-              </div>
-            </div>
-          )}
 
         </div>
       </div>
     </div>
+
+      {/* Lightbox Overlay */}
+      {expandedImage && (
+        <div 
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-slate-950/95 p-4 backdrop-blur-sm" 
+          onClick={() => setExpandedImage(null)}
+        >
+          <button
+            onClick={() => setExpandedImage(null)}
+            className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-white hover:bg-primary hover:text-white transition-colors z-10"
+          >
+            <X size={24} />
+          </button>
+          <img 
+            src={expandedImage} 
+            alt="Expanded view" 
+            className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl" 
+            onClick={(e) => e.stopPropagation()} 
+          />
+        </div>
+      )}
+    </>
   );
 };

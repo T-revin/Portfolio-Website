@@ -28,29 +28,20 @@ export const projects = [
   },
   {
     id: 2,
-    title: 'Automated Customer Support Analytics Pipeline',
-    description:
-      'A Power BI dashboard that visualises student outcomes data to identify trends and insights. The dashboard includes interactive charts and graphs to help stakeholders make data-driven decisions.',
+    title: 'Automated Customer Support Case Tracker',
+    description: 'An end-to-end automated data pipeline and visualisation dashboard that tracks customer support emails in near real-time.',
     image: '/projects/DataDashboard.png',
-    tags: ['Power Automate', 'Power BI', 'SharePoint'],
+    architectureImage: '/projects/PowerAutomateSupportCaseTrackerDiagram.png',
+    hasCaseStudy: true,
+    tags: ['Power BI', 'Power Automate', 'SharePoint', 'Data Engineering'],
     demoURL: '#',
     gitHubUrl: null,
-    hasCaseStudy: true,
     details: {
-      problem:
-        'Support officers were manually tracking tickets, leading to data entry errors and a 48-hour lag in reporting.',
-      solution:
-        'Developed a dual-flow automation. Flow 1 parses incoming Outlook emails and extracts metadata to SharePoint. Flow 2 triggers updates to the Power BI dataset for near real-time visualization.',
-      impact:
-        'Eliminated 100% of manual data entry for ticket tracking and provided management with live volume metrics.',
-      techStackDetails: [
-        'Power Automate (Flow)',
-        'SharePoint Lists',
-        'Power BI Service',
-        'DAX',
-      ],
-      architectureImage: '/projects/architecture-placeholder.png',
-    },
+      problem: '**Situation & Task:** The Student Services department was manually processing support emails from a shared Outlook mailbox. This manual data entry led to a 48-hour lag in reporting, human error, and a lack of visibility into current ticket volumes. My task was to design a zero-touch pipeline to automate data ingestion and provide stakeholders with a live overview of case metrics.',
+      solution: '**Action:** I engineered a dual-stage architecture. First, I developed two Power Automate flows that trigger upon incoming emails, parsing the metadata and writing it directly to a centralized SharePoint List. Second, I connected a Power BI dashboard directly to this list, utilizing Power Query for final data transformations and DAX for custom metric calculations (e.g., average response time).',
+      impact: '**Result:** The solution eliminated 100% of manual data entry for ticket tracking. Reporting latency was reduced from 2 days to near real-time (scheduled refreshes), enabling management to spot bottlenecks immediately and allocate resources effectively during high-volume periods.',
+      techStackDetails: ['Power Automate (Cloud Flows)', 'SharePoint Lists', 'Power BI Service', 'Power Query (M)', 'DAX']
+    }
   },
   {
     id: 3,
