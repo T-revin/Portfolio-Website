@@ -26,7 +26,8 @@ export const ProjectsSection = () => {
           {projects.map((project, key) => (
             <div
               key={key}
-              className="group glass-panel glass-hover overflow-hidden"
+              onClick={() => project.hasCaseStudy ? setSelectedProject(project) : null}
+              className={`group glass-panel glass-hover overflow-hidden ${project.hasCaseStudy ? 'cursor-pointer' : ''}`}
             >
               <div className="h-48 overflow-hidden">
                 <img
@@ -52,17 +53,17 @@ export const ProjectsSection = () => {
                 </p>
                 <div className="flex justify-between items-center w-full">
                   {project.hasCaseStudy ? (
-                    <button
-                      onClick={() => setSelectedProject(project)}
-                      className="text-sm font-medium text-primary hover:underline underline-offset-4 w-full text-center"
-                    >
-                      View Case Study
-                    </button>
+                    <div className="w-full text-center">
+                      <span className="text-primary font-medium text-sm">
+                        View Case Study &rarr;
+                      </span>
+                    </div>
                   ) : (
                     <div className="flex space-x-3">
                       <a
                         href={project.demoURL}
                         target="_blank"
+                        onClick={(e) => e.stopPropagation()}
                         className="text-foreground/80 hover:text-primary transition-colors duration-300"
                       >
                         <ExternalLink />
@@ -70,6 +71,7 @@ export const ProjectsSection = () => {
                       <a
                         href={project.gitHubUrl}
                         target="_blank"
+                        onClick={(e) => e.stopPropagation()}
                         className="text-foreground/80 hover:text-primary transition-colors duration-300"
                       >
                         <GithubIcon />
