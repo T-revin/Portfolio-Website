@@ -19,7 +19,7 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-4">
-            I am a London-based Data Professional with over 1.5 years of experience as a data professional in the Higher Education sector. 
+            I am a London-based Data Professional with over 1 and half years of experience as a data professional in the Higher Education sector. 
             I specialise in building automated data pipelines, interactive dashboards, and full-stack operational tools 
             that help organisations make faster, more accurate decisions.
           </p>
