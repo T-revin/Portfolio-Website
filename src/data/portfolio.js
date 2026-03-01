@@ -37,10 +37,10 @@ export const projects = [
     demoURL: '#',
     gitHubUrl: null,
     details: {
-      problem: '**Situation & Task:** The Student Services department was manually processing support emails from a shared Outlook mailbox. This manual data entry led to a 48-hour lag in reporting, human error, and a lack of visibility into current ticket volumes. My task was to design a zero-touch pipeline to automate data ingestion and provide stakeholders with a live overview of case metrics.',
-      solution: '**Action:** I engineered a dual-stage architecture. First, I developed two Power Automate flows that trigger upon incoming emails, parsing the metadata and writing it directly to a centralized SharePoint List. Second, I connected a Power BI dashboard directly to this list, utilizing Power Query for final data transformations and DAX for custom metric calculations (e.g., average response time).',
-      impact: '**Result:** The solution eliminated 100% of manual data entry for ticket tracking. Reporting latency was reduced from 2 days to near real-time (scheduled refreshes), enabling management to spot bottlenecks immediately and allocate resources effectively during high-volume periods.',
-      techStackDetails: ['Power Automate (Cloud Flows)', 'SharePoint Lists', 'Power BI Service', 'Power Query (M)', 'DAX']
+      problem: '**Situation & Task:** The Customer Support department was not tracking support cases done by email from a shared Outlook mailbox. This meant that there was no visibility into the number of support cases that were being handled by the department, and there was no way to track the progress of each case. Additionally, there was no way to identify trends in the types of support cases that were being handled, which made it difficult to identify areas where improvements could be made. ',
+      solution: '**Action:** I engineered a dual-stage architecture. First, I developed two Power Automate flows that trigger upon incoming emails, parsing the metadata and writing it directly to a centralised SharePoint List. Second, I connected a Power BI dashboard directly to this list, utilizing Power Query for final data transformations and DAX for custom metric calculations (e.g., average response time).',
+      impact: '**Result:** The solution produced a 100% automated data entry system for ticket tracking. This enabled data analysis to be done on the support cases, which allowed the department to identify trends in the types of support cases that were being handled, and identify areas where improvements could be made. ',
+      techStackDetails: ['Power Automate (Cloud Flows)', 'SharePoint Lists', 'Power BI Service', 'Power Query (M)']
     }
   },
   {
@@ -85,6 +85,23 @@ export const projects = [
       architectureImage: '/projects/architecture-placeholder.png',
     },
   },
+  {
+    id: 5, 
+    title: 'Dynamic Directory Generator & File Router',
+    description: 'A two-part Python automation engine that generates complex, nested directory trees from Excel logic and automatically routes unsorted files into them.',
+    image: '/projects/PythonRouter.png',
+    architectureImage: '/projects/CreateFolderPythonDiagram.png', 
+    hasCaseStudy: true,
+    tags: ['Python', 'Pandas', 'OS/Shutil', 'Data Engineering'],
+    demoURL: '#', 
+    gitHubUrl: 'https://github.com/T-revin/folder-creator.git',
+    details: {
+      problem: '**Situation & Task:** At my job at a higher education insitution, our growing student numbers imposed operational issues. One of which was creating individual folders for each student, to store their documents. The team was manually creating deep nests of folders for each student, e.g. by which course level, module, type of document, etc. This became highly unscalable, prone to human error, and wasted hours of administrative time. So I built a flexible, automated folder creation and sorting algorthim using Python.',
+      solution: '**Action:** My solution was to engineer a two-stage Python script using Pandas and the OS library. First, I designed a custom syntax engine that reads Excel headers (e.g., `topfolder/[node]/layer3`) to recursively generate infinite-depth folder trees based on user logic. Second, I built a file-routing script that parses incoming document names (separated by underscores) and automatically moves them into their corresponding nested directories.',
+      impact: '**Result:** Transformed an hours-long manual data-entry task into a near fully automated process. The solution eliminated all manual creation of folders, and eliminated drag-and-drop sorting errors, standardised the company’s digital filing taxonomy, and provided a scalable onboarding system for all future students.',
+      techStackDetails: ['Python (OS & Shutil libraries)', 'Pandas (Data manipulation)', 'Excel (Logic mapping)', 'Regex / String Parsing']
+    }
+  }
 ];
 
 export const skills = [
@@ -136,14 +153,14 @@ export const skills = [
     name: 'Python',
     category: 'analysis',
     description: 'Scripting, data analysis, and automation tasks.',
-    relatedProjectIds: [],
+    relatedProjectIds: [5],
   },
   {
     id: 'excel',
     name: 'Microsoft Excel',
     category: 'analysis',
-    description: 'Advanced data analysis, visualization, and automation with VBA.',
-    relatedProjectIds: [3],
+    description: 'Data management, analysis, and visualisation.',
+    relatedProjectIds: [3,5],
   },
   {
     id: 'power-bi',
@@ -155,11 +172,11 @@ export const skills = [
 
   // Tools
   {
-    id: 'tableau',
-    name: 'Tableau',
+    id: 'powerbi',
+    name: 'Power BI',
     category: 'visualisation',
     description: 'Creating interactive data visualizations.',
-    relatedProjectIds: [],
+    relatedProjectIds: [2],
   },
   {
     id: 'vscode',
@@ -169,24 +186,10 @@ export const skills = [
     relatedProjectIds: [4],
   },
   {
-    id: 'figma',
-    name: 'Figma',
-    category: 'tool',
-    description: '',
-    relatedProjectIds: [],
-  },
-  {
     id: 'github',
     name: 'GitHub',
     category: 'tool',
     description: '',
     relatedProjectIds: [4],
-  },
-  {
-    id: 'jupyter',
-    name: 'Jupyter Notebooks',
-    category: 'tool',
-    description: '',
-    relatedProjectIds: [],
   },
 ];
