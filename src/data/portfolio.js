@@ -89,7 +89,7 @@ export const projects = [
     id: 5, 
     title: 'Dynamic Directory Generator & File Router',
     description: 'A two-part Python automation engine that generates complex, nested directory trees from Excel logic and automatically routes unsorted files into them.',
-    image: '/projects/PythonRouter.png',
+    image: '/projects/CreateFolderThumbnail.jpg',
     architectureImage: '/projects/CreateFolderPythonDiagram.png', 
     hasCaseStudy: true,
     tags: ['Python', 'Pandas', 'OS/Shutil', 'Data Engineering'],
@@ -163,7 +163,7 @@ export const skills = [
     relatedProjectIds: [3,5],
   },
   {
-    id: 'power-bi',
+    id: 'powerBi',
     name: 'Power BI',
     category: 'visualisation',
     description: 'Creating interactive data dashboards and business intelligence reports.',
@@ -174,7 +174,7 @@ export const skills = [
   {
     id: 'powerbi',
     name: 'Power BI',
-    category: 'visualisation',
+    category: 'tool',
     description: 'Creating interactive data visualizations.',
     relatedProjectIds: [2],
   },

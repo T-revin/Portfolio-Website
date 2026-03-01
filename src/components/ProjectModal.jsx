@@ -67,8 +67,7 @@ export const ProjectModal = ({ isOpen, onClose, project }) => {
           <img
             src={project.image}
             alt={project.title}
-            onClick={() => setExpandedImage(project.image)}
-            className="w-full h-full object-cover cursor-pointer transition-opacity hover:opacity-80"
+            className="w-full h-full object-cover"
           />
           
           <div className="absolute bottom-0 left-0 p-6 md:p-8 z-[2]">
