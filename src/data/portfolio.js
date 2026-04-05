@@ -38,7 +38,7 @@ export const projects = [
     gitHubUrl: null,
     details: {
       problem: '**Situation & Task:** The Customer Support department was not tracking support cases done by email from a shared Outlook mailbox. This meant that there was no visibility into the number of support cases that were being handled by the department, and there was no way to track the progress of each case. Additionally, there was no way to identify trends in the types of support cases that were being handled, which made it difficult to identify areas where improvements could be made. ',
-      solution: '**Action:** I engineered a dual-stage architecture. First, I developed two Power Automate flows that trigger upon incoming emails, parsing the metadata and writing it directly to a centralised SharePoint List. Second, I connected a Power BI dashboard directly to this list, utilizing Power Query for final data transformations and DAX for custom metric calculations (e.g., average response time).',
+      solution: '**Action:** I engineered a dual-stage architecture. First, I developed two Power Automate flows that trigger upon incoming emails, parsing the metadata and writing it directly to a centralised SharePoint List. Second, I connected a Power BI dashboard directly to this list, utilising Power Query for final data transformations and DAX for custom metric calculations (e.g., average response time).',
       impact: '**Result:** The solution produced a 100% automated data entry system for ticket tracking. This enabled data analysis to be done on the support cases, which allowed the department to identify trends in the types of support cases that were being handled, and identify areas where improvements could be made. ',
       techStackDetails: ['Power Automate (Cloud Flows)', 'SharePoint Lists', 'Power BI Service', 'Power Query (M)']
     }
@@ -48,13 +48,13 @@ export const projects = [
     title: 'Automated Student Performance & Intervention Tracker',
     description:
       'A collaborative Excel-based tracking system that integrates VLE grade data with automated logic to monitor student performance and coordinate staff interventions.',
-    image: '/projects/DataManagement.png',
+    image: '/projects/ExcelInterventionTrackerThumbnail.png',
     tags: ['Microsoft Excel', 'Operational Analytics', 'Process Automation'],
     demoURL: '#',
     gitHubUrl: '#',
     hasCaseStudy: true,
     details: {
-      problem: '**Situation & Task:** Academic officers needed to track student grades and coordinate support interventions. However, grade data was locked in the Virtual Learning Environment (VLE), and officers had no centralized way to see overall performance, track missing marks, or log which students had already been contacted. This led to duplicated efforts and missed warning signs.',
+      problem: '**Situation & Task:** Academic officers needed to track student grades and coordinate support interventions. However, grade data was locked in the Virtual Learning Environment (VLE), and officers had no centralised way to see overall performance, track missing marks, or log which students had already been contacted. This led to duplicated efforts and missed warning signs.',
     solution: '**Action:** I engineered a comprehensive tracking workbook. I established a workflow to export VLE data and used XLOOKUP on Student IDs to reliably map grades into the tracker. I wrote complex Excel formulas to automatically calculate overall module grades, flag modules as "outstanding" or "awaiting marks," and calculate total end-of-year passes. Finally, I implemented a collaborative "Action Taken" logging system for the officer team.',
     impact: '**Result:** The tool became the single source of truth for the department. The automated status columns (outstanding/passed) allowed staff to instantly filter for at-risk students, while the collaborative tracking column eliminated duplicate emails and streamlined the intervention process.',
     techStackDetails: ['Microsoft Excel', 'XLOOKUP & Data Mapping', 'Automated Status Logic (IF/AND/OR)', 'Data Extraction'],
@@ -90,10 +90,27 @@ export const projects = [
     demoURL: '#', 
     gitHubUrl: 'https://github.com/T-revin/folder-creator.git',
     details: {
-      problem: '**Situation & Task:** At my job at a higher education insitution, our growing student numbers imposed operational issues. One of which was creating individual folders for each student, to store their documents. The team was manually creating deep nests of folders for each student, e.g. by which course level, module, type of document, etc. This became highly unscalable, prone to human error, and wasted hours of administrative time. So I built a flexible, automated folder creation and sorting algorthim using Python.',
+      problem: '**Situation & Task:** At my job at a higher education insitution, our growing student populationimposed operational issues. One of which was creating individual folders for each student, to store their documents. The team was manually creating deep nests of folders for each student, e.g. by which course level, module, type of document, etc. This became highly unscalable, prone to human error, and wasted hours of administrative time. So I built a flexible, automated folder creation and sorting algorthim using Python.',
       solution: '**Action:** My solution was to engineer a two-stage Python script using Pandas and the OS library. First, I designed a custom syntax engine that reads Excel headers (e.g., `topfolder/[node]/layer3`) to recursively generate infinite-depth folder trees based on user logic. Second, I built a file-routing script that parses incoming document names (separated by underscores) and automatically moves them into their corresponding nested directories.',
       impact: '**Result:** Transformed an hours-long manual data-entry task into a near fully automated process. The solution eliminated all manual creation of folders, and eliminated drag-and-drop sorting errors, standardised the company’s digital filing taxonomy, and provided a scalable onboarding system for all future students.',
       techStackDetails: ['Python (OS & Shutil libraries)', 'Pandas (Data manipulation)', 'Excel (Logic mapping)', 'Regex / String Parsing']
+    }
+  },
+  {
+    id: 6, 
+    title: 'Event-Driven Automation for Deadline Management',
+    description: 'A Power Automate flow triggered by upcoming deadlines read from a SharePoint list, which sends automated reminders to academic staff to mark student work.',
+    image: '/projects/AssessmentEmailAutomationThumbnail.png',
+    architectureImage: '/projects/AssessmentEmailAutomationDiagram.png', 
+    hasCaseStudy: true,
+    tags: ['Power Automate', 'SharePoint Lists','Process Automation'],
+    demoURL: '#', 
+    gitHubUrl: '#',
+    details: {
+      problem: '**Situation & Task:** At my job at a higher education insitution, our growing student population imposed operational strain on professional staff with regards to deadline management. In this specific instance, tracking the timely marking of student work. Staff were manually checking if student work had been marked by academic staff, and sending reminders to those who had not. This was a time consuming and inefficient process.',
+      solution: '**Action:** My solution was to enginner a Power Automate workflow that would send an email reminder to academic staff to mark student work as soon as the submission deadline had passed. This was achieved by the workflow running every morning at 9am, checking items in a SharePoint list, and comparing the submission deadline to the current date to send email reminders. The second part of the solution was to also send a secondary email reminder to the professional staff team after the marking deadline has passed to check if the marking is complete, by providing the direct link to the submission box where students submit to make it a one click process to check the status of the marking.',
+      impact: '**Result:** This provided the professional staff team a new capability to send automated reminders to academic staff to mark student work, and a one click process to check the status of the marking. This resulted in a 100% reduction in the time it took to send reminders to academic staff to mark student work, and for future operations, this system can easily scale to 100s or 1000s of email reminders being sent, even when staff are not working.',
+      techStackDetails: ['Microsoft Power Automate', 'SharePoint Lists']
     }
   }
 ];
@@ -162,6 +179,13 @@ export const skills = [
     category: 'visualisation',
     description: 'Creating interactive data dashboards and business intelligence reports.',
     relatedProjectIds: [2],
+  },
+    {
+    id: 'powerAutomate',
+    name: 'Power Automate',
+    category: 'engineering',
+    description: 'Automating business processes and workflows.',
+    relatedProjectIds: [2,6],
   },
 
   // Tools
