@@ -19,7 +19,7 @@ export const projects = [
       problem:
         '**Situation & Task:** At my internship, my group was tasked with creating a web application that would automate the process of allocating students into groups based on various criteria such as preferences and availability, by our client a University lecturer. The lecturer experienced issues keeping track of students and allocating them into groups based on preferences stated by the students.',
       solution:
-        '**Action:** My group developed a web application solution utlising React for the frontend, connected to a SQL Database using backend API built with Express.js. This students to see their profile and select fellow students they want to be in groups with for each module. For the lecturer it allowed them to see all students loaded in from the database, and allocate them into groups based on preferences stated by the students.',
+        '**Action:** My group developed the web application solution utlising React JS for the frontend, connected to a SQL Database using backend API pre-built with Express.js. This allowed students to see their profile and select fellow students they want to be in groups with for each module. For the lecturer it allowed them to see all students loaded in from the database, and allocate them into groups based on preferences stated by the students.',
       impact:
         '**Result:** The web application was able to successfully automate the process of allocating students into groups based on preferences and the lecturer to keep track of the students in a easy to use and navigate web application.',
       techStackDetails: ['React', 'Express.js', 'PostgreSQL', 'Node.js'],
